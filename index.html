@@ -14,10 +14,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 600px;
             background: #fff;
             padding: 20px;
@@ -33,6 +33,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
+            resize: none;
         }
         .button-group {
             display: flex;
@@ -58,6 +59,19 @@
             background: #e9ecef;
             border: 1px solid #ddd;
             border-radius: 4px;
+            word-wrap: break-word;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            textarea {
+                font-size: 14px;
+            }
         }
     </style>
 </head>

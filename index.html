@@ -7,17 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
+            width: 100%;
             max-width: 600px;
-            margin: auto;
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         textarea {
             width: 100%;
@@ -27,6 +33,13 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         button {
             background-color: #007BFF;
@@ -41,7 +54,6 @@
             background-color: #0056b3;
         }
         .result {
-            margin-top: 20px;
             padding: 10px;
             background: #e9ecef;
             border: 1px solid #ddd;
@@ -52,14 +64,16 @@
 <body>
     <div class="container">
         <h2>Text Operations</h2>
-        <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+        <textarea id="input" placeholder="Enter your text here..."></textarea>
 
-        <button onclick="toUpperCase()">Convert to Uppercase</button>
-        <button onclick="toLowerCase()">Convert to Lowercase</button>
-        <button onclick="countWords()">Count Words</button>
-        <button onclick="countCharacters()">Count Characters</button>
+        <div class="button-group">
+            <button onclick="handleTextOps('uppercase')">Convert to Uppercase</button>
+            <button onclick="handleTextOps('lowercase')">Convert to Lowercase</button>
+            <button onclick="handleTextOps('wordcount')">Count Words</button>
+            <button onclick="handleTextOps('charcount')">Count Characters</button>
+        </div>
 
-        <div class="result" id="result"></div>
+        <div class="result" id="output"></div>
     </div>
 
     <script>
@@ -69,23 +83,20 @@
 
         switch (op) {
           case "uppercase":
-            outputElement.value = inputElement.value.toUpperCase();
+            outputElement.textContent = inputElement.value.toUpperCase();
             break;
           case "lowercase":
-            outputElement.value = inputElement.value.toLowerCase();
+            outputElement.textContent = inputElement.value.toLowerCase();
             break;
           case "wordcount":
-            const totalWords = inputElement.value.split(" ").length;
-            outputElement.value = `Word Count: ${totalWords}`;
+            const totalWords = inputElement.value.trim().split(" ").length;
+            outputElement.textContent = `Word Count: ${totalWords}`;
             break;
           case "charcount":
-            outputElement.value = `Character Count: ${inputElement.value.length}`;
+            outputElement.textContent = `Character Count: ${inputElement.value.length}`;
             break;
         }
       }
-       
-       
-       
     </script>
 </body>
 </html>
